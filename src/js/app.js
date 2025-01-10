@@ -39,7 +39,7 @@ ws.onmessage = (event) => {
       data.messages.forEach((message) => {
         const messageDiv = document.createElement("div");
         messageDiv.className = `message ${message.sender === myNickName ? "right" : ""}`;
-				messageDiv.innerHTML = createMessage(message);
+        messageDiv.innerHTML = createMessage(message);
         messagesDiv.appendChild(messageDiv);
       });
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
@@ -48,12 +48,13 @@ ws.onmessage = (event) => {
     case "new_message":
       console.log("New message received:", data);
 
+      // eslint-disable-next-line no-case-declarations
       const messageDiv = document.createElement("div");
       messageDiv.className = `message ${data.sender === myNickName ? "right" : ""}`;
       messageDiv.innerHTML = createMessage(data);
 
       messagesDiv.appendChild(messageDiv);
-      messagesDiv.scrollTop = messagesDiv.scrollHeight; 
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
       break;
   }
 };
@@ -66,17 +67,15 @@ sendButton.addEventListener("click", () => {
   }
 });
 
-
-  document.addEventListener('keyup', (e) => {
-    if (e.code === "Enter" && messageInput.value) {
-      sendMessage();
-    }
-  })
-
+document.addEventListener("keyup", (e) => {
+  if (e.code === "Enter" && messageInput.value) {
+    sendMessage();
+  }
+});
 
 function createMessage(message) {
   return `
-					<span class="message-sender">${message.sender === myNickName ? "You, " : message.sender + ", " }${message.timestamp}</span>
+					<span class="message-sender">${message.sender === myNickName ? "You, " : message.sender + ", "}${message.timestamp}</span>
 					<span class="message-content">${message.content}</span>					
 				`;
 }
@@ -88,4 +87,3 @@ function sendMessage() {
     messageInput.value = "";
   }
 }
-

@@ -2,7 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qlh9k7974fp6uoau?svg=true)](https://ci.appveyor.com/project/bugagi67/chat-frontend)
 
-GH-PAGES - 
+GH-PAGES - https://bugagi67.github.io/chat_frontend/
 
 Легенда
 В рамках реализации корпоративного портала вам поручили организовать чат, и, конечно же, вы решили для этого использовать веб-сокеты.
